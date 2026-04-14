@@ -9,15 +9,15 @@ let
   platform_attrs = {
     "aarch64-darwin" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-aarch64";
-      sha256 = "1azc7ygvcmzs3sag3svf5g90cbw9p603vzfnkrbwb1js3hfjpdxr";
+      sha256 = "1s6sic6zg9lcpv5858x1jd91l491r17yb86qb2am9r809lpa7w18";
     };
     "aarch64-linux" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-aarch64";
-      sha256 = "1if1g7qv92b84g30fxf2bwg0nas287qrl59l69sjyjbw0qwmi9gq";
+      sha256 = "05diii05r98g2f6scg1w2l5iignk5w3kbl9b6nb26zm1r0rds6db";
     };
     "x86_64-linux" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-x86-64";
-      sha256 = "0ax7zm8sy9vg4zj6m8fardqj4whqdgs3b282hxjfiq55iky0fc6i";
+      sha256 = "0f2ckj8cxvvdq0qs93h81y67pr4kr3nzdzy24lzxqly07kbm6mdg";
     };
   };
   # GENERATED VERSION CONTROL - END
