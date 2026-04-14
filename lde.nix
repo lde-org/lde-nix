@@ -26,13 +26,34 @@ pkgs.stdenv.mkDerivation {
   pname = "lde";
   version = releaseTag;
   src = pkgs.fetchurl platform_attrs.${system};
-  nativeBuildInputs = [ pkgs.autoPatchelfHook ];
-  buildInputs = [
-    pkgs.glibc
-    pkgs.gcc-unwrapped
+  nativeBuildInputs = with pkgs; [
+    pkg-config
+    autoPatchelfHook
+    makeWrapper
+  ];
+  buildInputs = with pkgs; [
+    glibc
+    gcc-unwrapped
+    openssl
+    zlib
   ];
   unpackPhase = "true";
+
   installPhase = ''
     install -D "$src" "$out/bin/lde"
+    runHook postInstall
+  '';
+
+  postInstall = ''
+    wrapProgram "$out/bin/lde" \
+      --prefix LD_LIBRARY_PATH : ${
+        pkgs.lib.makeLibraryPath (
+          with pkgs;
+          [
+            openssl
+            zlib
+          ]
+        )
+      }
   '';
 }
