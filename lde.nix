@@ -11,6 +11,10 @@ let
       url = "https://github.com/lde-org/lde/releases/download/v0.9.1/lde-macos-aarch64";
       sha256 = "1p34f7wcahhcyx3ag465k4wyf5qys3a203dqzrgbl81gg8amjb5z";
     };
+    "x86_64-darwin" = {
+      url = "https://github.com/lde-org/lde/releases/download/v0.9.1/lde-macos-x86-64";
+      sha256 = "0112p44mjwdpn4k57adl2rspvw8l5qi5sr763sgj4hhxnbqmazc7";
+    };
     "aarch64-linux" = {
       url = "https://github.com/lde-org/lde/releases/download/v0.9.1/lde-linux-aarch64";
       sha256 = "1xamm1k48r5kgpkr1k5q814ksj82r6c3jrj51ir0qkd7c1b9yw2a";
