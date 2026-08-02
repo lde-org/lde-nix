@@ -14,6 +14,7 @@ nix_file="lde.nix"
 repo="lde-org/lde"
 releaseTag="$1"
 if [ "$releaseTag" = "" ]; then
+    # Get last tag
     releaseTag="$(
         git -c "versionsort.suffix=-" ls-remote --tags --sort="v:refname" \
             "https://github.com/$repo" | tail --lines=1 | cut --delimiter="/" --fields=3
@@ -40,6 +41,9 @@ new_attrs_block=$(
   platform_attrs = {
     "aarch64-darwin" = {
 $(attrs macos aarch64)
+    };
+    "x86_64-darwin" = {
+$(attrs macos x86-64)
     };
     "aarch64-linux" = {
 $(attrs linux aarch64)
