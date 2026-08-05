@@ -23,7 +23,7 @@ fi
 
 attrs() {
     indent="      "
-    target="lde-$1-$2"
+    target="lde-$1-$2.zip"
     url="https://github.com/$repo/releases/download/$releaseTag/$target"
     echo "${indent}url = \"$url\";"
     sha256="$(nix-prefetch-url "$url" 2>/dev/null)"
