@@ -9,19 +9,19 @@ let
   platform_attrs = {
     "aarch64-darwin" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-aarch64.zip";
-      sha256 = "0z4yxx4z8fm5anrp8b2wvkf4cx9jlslj2k59r15sxszflyhw01b9";
+      sha256 = "17dcg24myvg3iqgywkfh2pcwaib5qvyrk8psgbarhhjhisnm9h8a";
     };
     "x86_64-darwin" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-x86-64.zip";
-      sha256 = "03f4y0b5bjf2ychqrikdsjm2p0qdysib7xawkv7skqy2jz11zbvc";
+      sha256 = "1lc8y0kwraik60a152y0s0rlsk2s1nhrhamfnbcymcaf9a5a9v8n";
     };
     "aarch64-linux" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-aarch64.zip";
-      sha256 = "1s6vzbgpfjwsb5whr1dif0kp8hjxqfyrwvk7nk4rhgiadvzsr7in";
+      sha256 = "14mlijabl39zm6n1ga963224r564lvik6l4h0rzlp9nmrpigmj00";
     };
     "x86_64-linux" = {
       url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-x86-64.zip";
-      sha256 = "1nxnqxl4j1q4jxkl8wgb9rwpa4nw6b651gk4rsh02f9b5v00wnj1";
+      sha256 = "1kxlgmdhgyhi97g8lslz64q8rsk5n59yifa6wbyfgvp3sfzb2cgm";
     };
   };
   # GENERATED VERSION CONTROL - END
