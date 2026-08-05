@@ -9,4 +9,4 @@ This is a flake for **installing** [`lde`](https://github.com/lde-org/lde) from 
   inputs.lde.url = "github:lde-org/lde-nix/nightly";
 }
 ```
-Then, add `lde.packages.${builtins.currentSystem}.default` wherever you install packages (assuming you added `lde` as an argument to your flake output).
+Then, add `lde.packages.${your-system}.default` wherever you install packages (assuming you added `lde` as an argument to your flake output), `your-system` being the architecture you run on.
