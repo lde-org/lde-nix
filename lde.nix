@@ -8,20 +8,20 @@ let
   releaseTag = "nightly";
   platform_attrs = {
     "aarch64-darwin" = {
-      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-aarch64";
-      sha256 = "055mb7rgilwxqkhvcd27fjkva8a7gv7d6rwf2a91in05i1lp2jg3";
+      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-aarch64.zip";
+      sha256 = "0z4yxx4z8fm5anrp8b2wvkf4cx9jlslj2k59r15sxszflyhw01b9";
     };
     "x86_64-darwin" = {
-      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-x86-64";
-      sha256 = "1y1i7a68gsmj0hkk2gliw1f4z20hfgql7ihs9kj7wfijj3ylfc87";
+      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-macos-x86-64.zip";
+      sha256 = "03f4y0b5bjf2ychqrikdsjm2p0qdysib7xawkv7skqy2jz11zbvc";
     };
     "aarch64-linux" = {
-      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-aarch64";
-      sha256 = "1fryz6i8ixg4bfx88abl09r9a83hpmcjgl1bypwasygx8zfmlpgf";
+      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-aarch64.zip";
+      sha256 = "1s6vzbgpfjwsb5whr1dif0kp8hjxqfyrwvk7nk4rhgiadvzsr7in";
     };
     "x86_64-linux" = {
-      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-x86-64";
-      sha256 = "1hdmf77pz49vqmh8hqb579r7v16ppc2i0iyjx3j5i5wlcy1x2y8l";
+      url = "https://github.com/lde-org/lde/releases/download/nightly/lde-linux-x86-64.zip";
+      sha256 = "1nxnqxl4j1q4jxkl8wgb9rwpa4nw6b651gk4rsh02f9b5v00wnj1";
     };
   };
   # GENERATED VERSION CONTROL - END
@@ -34,6 +34,7 @@ pkgs.stdenv.mkDerivation {
     pkg-config
     autoPatchelfHook
     makeWrapper
+    unzip
   ];
   buildInputs = with pkgs; [
     glibc
@@ -41,10 +42,17 @@ pkgs.stdenv.mkDerivation {
     openssl
     zlib
   ];
-  unpackPhase = "true";
+
+  unpackPhase = ''
+    runHook preUnpack
+    unzip "$src"
+    mv "$(basename ${platform_attrs.${system}.url} .zip)" lde
+    runHook postUnpack
+  '';
 
   installPhase = ''
-    install -D "$src" "$out/bin/lde"
+    runHook preInstall
+    install -D lde "$out/bin/lde"
     runHook postInstall
   '';
 
