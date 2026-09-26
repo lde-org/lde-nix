@@ -1,0 +1,56 @@
+name: Update lde version
+
+# Bumps main to the newest upstream release and nightly to the rolling
+# `nightly` prerelease: daily at 06:00 UTC, or on demand from the Actions tab
+# ("Run workflow").
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: cachix/install-nix-action@v31
+
+      - name: Bump main and nightly
+        run: |
+          set -euo pipefail
+          git config user.name robolde
+          git config user.email 317482326+robolde@users.noreply.github.com
+
+          commit() { # <branch> <message>
+            if [ -n "$(git status --porcelain)" ]; then
+              git commit -qam "$2"
+            else
+              echo "$1: no version change"
+            fi
+            git push -q origin "HEAD:refs/heads/$1"
+          }
+
+          # main: newest stable release, tagged so refs/tags/vX.Y.Z can be pinned.
+          git checkout -qB main origin/main
+          ./gen-version-control.sh
+          tag="$(sed -n 's/.*releaseTag = "\(.*\)";/\1/p' lde.nix)"
+          commit main "chore: bump to $tag"
+          if ! git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then
+            git tag -a "$tag" -m "lde $tag"
+            git push -q origin "refs/tags/$tag"
+          fi
+
+          # nightly: the rolling prerelease. The branches differ only inside the
+          # generated block, so -X ours keeps this branch's copy of it and takes
+          # everything else from main; the block is regenerated right after.
+          git fetch -q origin main
+          git checkout -qB nightly origin/nightly
+          git merge -q --no-edit -X ours origin/main
+          ./gen-version-control.sh nightly
+          commit nightly "chore: bump nightly build"
