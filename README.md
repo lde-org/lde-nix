@@ -3,9 +3,9 @@ This is a flake for **installing** [`lde`](https://github.com/lde-org/lde) from 
 {
   # Latest release
   inputs.lde.url = "github:lde-org/lde-nix";
-  # Pinned version, here for instance v0.8.1
-  inputs.lde.url = "github:lde-org/lde-nix?ref=refs/tags/v0.8.1";
-  # Nightly build, may not work depending on the maintainer's reactivity
+  # Pinned version, here for instance v0.11.1
+  inputs.lde.url = "github:lde-org/lde-nix?ref=refs/tags/v0.11.1";
+  # Nightly build, refreshed daily from the upstream `nightly` prerelease
   inputs.lde.url = "github:lde-org/lde-nix/nightly";
 }
 ```
