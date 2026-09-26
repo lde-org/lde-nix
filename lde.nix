@@ -5,23 +5,23 @@
 
 let
   # GENERATED VERSION CONTROL - BEGIN
-  releaseTag = "v0.10.0";
+  releaseTag = "v0.11.1";
   platform_attrs = {
     "aarch64-darwin" = {
-      url = "https://github.com/lde-org/lde/releases/download/v0.10.0/lde-macos-aarch64.zip";
-      sha256 = "14w46liqczwqnm33hq8rq3937473b6y5hj8cn1pryifiqbydajm6";
+      url = "https://github.com/lde-org/lde/releases/download/v0.11.1/lde-macos-aarch64.zip";
+      sha256 = "128plhr9f51816wr1rwvbc29pkwk625r81563njh3d3n4svczz8f";
     };
     "x86_64-darwin" = {
-      url = "https://github.com/lde-org/lde/releases/download/v0.10.0/lde-macos-x86-64.zip";
-      sha256 = "0r7qwx0mmgz9d5fy5qsj0a5a6jzxi8b5k5la5wxl8n600jrbff2z";
+      url = "https://github.com/lde-org/lde/releases/download/v0.11.1/lde-macos-x86-64.zip";
+      sha256 = "1s7fxd9mvhj6hki9fdnwlw2f4vfmikbya4lgpvpc1q4k54nmwgwp";
     };
     "aarch64-linux" = {
-      url = "https://github.com/lde-org/lde/releases/download/v0.10.0/lde-linux-aarch64.zip";
-      sha256 = "1p52vdghi5im7iz89ccw2rvaig8bmr4ajvwsylkm6bww0airpirl";
+      url = "https://github.com/lde-org/lde/releases/download/v0.11.1/lde-linux-aarch64.zip";
+      sha256 = "0ljzhypjpr1ghysk27vhkc3zrr4ipwkw3zfa99rw4667sph5dhj6";
     };
     "x86_64-linux" = {
-      url = "https://github.com/lde-org/lde/releases/download/v0.10.0/lde-linux-x86-64.zip";
-      sha256 = "1y3qkdd18hk9k1rfhrx9w28w1dr5ifw7kzlssyd5d950bhbq3ca4";
+      url = "https://github.com/lde-org/lde/releases/download/v0.11.1/lde-linux-x86-64.zip";
+      sha256 = "0a59hmbjckzdwp6mbv3qvrwbl4caxkdqw5sfwxl5x96hy1q13dpw";
     };
   };
   # GENERATED VERSION CONTROL - END
